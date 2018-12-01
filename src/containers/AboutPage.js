@@ -12,20 +12,24 @@ class AboutPage extends Component {
                 name: "React",
                 years: 2,
                 id: 1,
+                description: "Boudin bresaola tri-tip chuck, shankle venison drumstick.",
             }, {
                 name: "Redux",
                 years: 1,
                 id: 2,
+                description: "Pork belly corned beef landjaeger ribeye pork.",
             }, {
                 name: "JavaScript",
                 years: 3,
                 id: 3,
+                description: "Bresaola corned beef sirloin, drumstick alcatra tongue sausage rump biltong.",
             }
 
         ]
     }
 
     render() {
+        const skills = this.state.skills;
         return (
             <Router>
                 <div>
@@ -37,14 +41,13 @@ class AboutPage extends Component {
                                     <Skill 
                                         key={skill.id}
                                         name={skill.name}
-                                        years={skill.years}
                                         match={this.props.match}
                                     />
                                 )
                             })
                         }
-                    
-                        <Route path={`${this.props.match.path}/:skillId`} component={SkillDetails} />
+                    <hr/>
+                    <Route path={`${this.props.match.path}/:skillName`} render={props => <SkillDetails {...props} skills={skills}/>} />
                     
                 </div>
             </Router>

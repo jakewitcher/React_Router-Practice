@@ -5,7 +5,6 @@ const Skill = (props) => {
     return (
             <div>
                 <Link to={`${props.match.url}/${props.name}`}>{props.name}</Link>
-                <p>{props.years}</p>
             </div>
     );
 }
